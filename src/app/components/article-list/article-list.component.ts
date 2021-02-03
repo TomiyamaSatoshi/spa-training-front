@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ARTICLES } from '../../models/mock-article';
+
 
 @Component({
   selector: 'app-article-list',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article-list.component.scss']
 })
 export class ArticleListComponent implements OnInit {
+
+  article = ARTICLES;
 
   constructor() { }
 

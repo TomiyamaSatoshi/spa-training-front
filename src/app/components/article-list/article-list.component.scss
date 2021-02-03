@@ -1,3 +1,48 @@
-p {
-    color: red;
+$cardColor: rgb(73, 149, 211);
+
+@mixin icon($color: $cardColor) {
+    .item {
+        i {
+            color: $color;
+        }
+    }
+}
+
+.card {
+    width: 95%;
+    margin: 1% auto;
+    border: 1px solid $cardColor;
+    .card-footer-custom {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @include icon();
+    }
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    :hover {
+        color: whitesmoke;
+        background: $cardColor;
+        .card-footer-custom {
+            @include icon(whitesmoke);
+        }
+    }
+}
+
+.thumbnail-xsmall {
+    width: 24px;
+    height: 24px;
+}
+
+.img-responsive {
+    width: 100%;
+}
+
+.carousel-position {
+    max-width: 600px;
+    width: 100%;
+    margin: 3% auto 0 auto;
 }
