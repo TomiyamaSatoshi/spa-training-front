@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeadlinePipe } from './pipes/headline.pipe';
+import { ThumbnailDirective } from './directives/thumbnail.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HeadlinePipe } from './pipes/headline.pipe';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    HeadlinePipe
+    HeadlinePipe,
+    ThumbnailDirective
   ],
   imports: [
     BrowserModule,
