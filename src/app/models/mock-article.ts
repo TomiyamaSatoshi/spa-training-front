@@ -4,7 +4,11 @@ export const ARTICLES: Article = {
 
     articleId: 1,
     articleTitle: '記事タイトル',
-    articleContent: '記事文章内容',
+    articleContent: 'この文章はダミーです。文字の大きさ、量、行間等を確認するために入れています。' +
+    'この文章はダミーです。文字の大きさ、量、行間等を確認するために入れています。' +
+    'この文章はダミーです。文字の大きさ、量、行間等を確認するために入れています。' +
+    'この文章はダミーです。文字の大きさ、量、行間等を確認するために入れています。' +
+    'この文章はダミーです。文字の大きさ、量、行間等を確認するために入れています。' ,
     niceCount: 2,
     pictureUrl: '',
     createdBy: 'spa.training',

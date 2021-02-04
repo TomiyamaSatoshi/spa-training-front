@@ -7,6 +7,7 @@ import { ArticleListComponent } from './components/article-list/article-list.com
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { HeadlinePipe } from './pipes/headline.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     ArticleListComponent,
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    HeadlinePipe
   ],
   imports: [
     BrowserModule,
