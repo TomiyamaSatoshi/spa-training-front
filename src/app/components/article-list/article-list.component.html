@@ -10,7 +10,7 @@
     </ng-template>
 </ngb-carousel>
 
-<div *ngIf="articleList.length; else noArticles">
+<div *ngIf="articleList?.length; else noArticles">
     <div *ngFor="let article of articleList">
         <a class="card">
             <div class="card-body">
