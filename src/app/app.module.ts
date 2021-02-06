@@ -13,6 +13,9 @@ import { ThumbnailDirective } from './directives/thumbnail.directive';
 import { CommonInterceptor } from './interceptors/common-interceptor';
 import { MockBackendInterceptor } from './interceptors/mock-backend-interceptor';
 import { AppErrorHandler } from './common/app-error-handler';
+import { environment } from 'src/environments/environment';
+
+const httpInterceptorProviders = environment.httpInterceptorProviders;
 
 @NgModule({
   declarations: [
@@ -30,9 +33,8 @@ import { AppErrorHandler } from './common/app-error-handler';
     HttpClientModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: CommonInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: MockBackendInterceptor, multi: true },
-    { provide: ErrorHandler, useClass: AppErrorHandler,},
+    { provide: ErrorHandler, useClass: AppErrorHandler },
+    httpInterceptorProviders,
   ],
   bootstrap: [AppComponent]
 })

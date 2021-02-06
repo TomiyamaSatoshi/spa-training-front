@@ -13,7 +13,7 @@ export const environment = {
 
   httpInterceptorProviders: [
     { provide: HTTP_INTERCEPTORS, useClass: CommonInterceptor, multi: true },
-    // { provide: HTTP_INTERCEPTORS, useClass: MockBackendInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: MockBackendInterceptor, multi: true },
   ]
 };
 

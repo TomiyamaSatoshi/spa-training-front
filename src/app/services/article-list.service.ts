@@ -1,7 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { Article } from '../models/article';
 import { BaseService } from './base.service';
 
@@ -9,6 +10,8 @@ import { BaseService } from './base.service';
   providedIn: 'root'
 })
 export class ArticleListService extends BaseService{
+
+  apiUrl = environment.apiUrl;
 
   constructor(private httpClient: HttpClient) { 
     super();
@@ -20,7 +23,7 @@ export class ArticleListService extends BaseService{
       .set('offset', (page * pageSize).toString())
       .set('limit', pageSize.toString());
 
-    return this.httpClient.get<Article[]>('http;//localhost:8080/article/lisr', { params })
+    return this.httpClient.get<Article[]>(this.apiUrl + '/article/list', { params })
      .pipe( catchError(this.handleError) ); 
   }
 
