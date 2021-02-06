@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppError } from 'src/app/common/app-error';
+import { BadRequestError } from 'src/app/common/bad-request-error';
 import { Article } from 'src/app/models/article';
 import { ArticleListService } from 'src/app/services/article-list.service';
 
@@ -25,10 +27,17 @@ export class ArticleListComponent implements OnInit {
   }
 
   getArticles() {
-    this.articleListService.getArticles(0, 5).subscribe(
+    this.articleListService.getArticles(0, 6).subscribe(
       (articles) => {
         console.log(JSON.stringify(articles));
         this.articleList = articles;
+      },
+      (error: AppError) => {
+        if (error instanceof BadRequestError) {
+          console.log('ERROR: Bad Request.');
+        } else {
+          throw error;
+        }
       }
     );
   }

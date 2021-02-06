@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -12,6 +12,7 @@ import { HeadlinePipe } from './pipes/headline.pipe';
 import { ThumbnailDirective } from './directives/thumbnail.directive';
 import { CommonInterceptor } from './interceptors/common-interceptor';
 import { MockBackendInterceptor } from './interceptors/mock-backend-interceptor';
+import { AppErrorHandler } from './common/app-error-handler';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MockBackendInterceptor } from './interceptors/mock-backend-interceptor'
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: CommonInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: MockBackendInterceptor, multi: true },
+    { provide: ErrorHandler, useClass: AppErrorHandler,},
   ],
   bootstrap: [AppComponent]
 })
