@@ -16,6 +16,7 @@ import { MockBackendInterceptor } from './interceptors/mock-backend-interceptor'
 import { AppErrorHandler } from './common/app-error-handler';
 import { environment } from 'src/environments/environment';
 import { ArticleCreateTemplateComponent } from './components/article-create/article-create-template/article-create-template.component';
+import { ArticleCreateReactiveComponent } from './components/article-create/article-create-reactive/article-create-reactive.component';
 
 const httpInterceptorProviders = environment.httpInterceptorProviders;
 
@@ -29,6 +30,7 @@ const httpInterceptorProviders = environment.httpInterceptorProviders;
     HeadlinePipe,
     ThumbnailDirective,
     ArticleCreateTemplateComponent,
+    ArticleCreateReactiveComponent,
   ],
   imports: [
     BrowserModule,
