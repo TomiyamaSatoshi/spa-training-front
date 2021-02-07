@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>記事を投稿する</h2>
+        <form>
+            <!-- input title -->
+            <div class="form-group row">
+                <label class="col-12 col-md-1 control-label">題名</label>
+                <input
+                    class="fcol-12 col-md-11 form-control"
+                    type="text"
+                    name="articleTitle"/>
+            </div>
+            <!-- input coments -->
+            <div class="form-group row">
+                <textarea
+                    col-12
+                    name="articleContent"
+                    rows="6"
+                    class="form-control"
+                    type="text"
+                    placeholder="ここに記事の内容を入力してください"></textarea>
+            </div>
+            <!-- submit button -->
+            <div class="row">
+                <button type="submit" class="offset-10 col-2 btn btn-outline-primary">
+                    投稿
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

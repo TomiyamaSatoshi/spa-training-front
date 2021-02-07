@@ -17,7 +17,14 @@ export class MockBackendInterceptor implements HttpInterceptor {
                         const end   = parseInt(req.params.get('limit'), 10);
                         return of(new HttpResponse({ status: 200, body: ARTICLES.slice(begin, end) }));
                     }
+                } else if (req.method === 'POST') {
+                    if (req.url.endsWith('/article')
+                        && req.body.articleTitle
+                        && req.body.articleContent) {
+                        return of(new HttpResponse({ status: 200, body: { message: 'OK' }}));
+                    }
                 }
+                return next.handle(req);
             }),
             delay(1000),
         );
