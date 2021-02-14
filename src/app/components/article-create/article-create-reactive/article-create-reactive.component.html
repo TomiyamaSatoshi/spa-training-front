@@ -8,10 +8,7 @@
                 <input
                 class="form-control"
                 type="text"
-                name="articleTitle"
-                ngModel
-                required
-                #articleTitle="ngModel" />
+                formControlName="articleTitle"/>
                 <!-- validation -->
                 <div *ngIf="articleTitle.invalid && articleTitle.touched" class="alert alert-danger">
                     題名は必須です
@@ -22,15 +19,11 @@
         <div class="form-group row">
             <textarea
                 col-12
-                name="articleContent"
                 rows="6"
                 class="form-control"
                 type="text"
                 placeholder="ここに記事の内容を入力してください"
-                ngModel
-                required
-                minlength="5"
-                #articleContent="ngModel"></textarea>
+                formControlName="articleContent"></textarea>
             <!-- validation -->
             <div *ngIf="articleContent.invalid && articleContent.touched" class="alert alert-danger">
                 <div *ngIf="articleContent.errors.required">

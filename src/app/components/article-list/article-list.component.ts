@@ -27,7 +27,7 @@ export class ArticleListComponent implements OnInit {
   }
 
   getArticles() {
-    this.articleListService.getArticles(0, 6).subscribe(
+    this.articleListService.getArticles(0, 2).subscribe(
       (articles) => {
         console.log(JSON.stringify(articles));
         this.articleList = articles;

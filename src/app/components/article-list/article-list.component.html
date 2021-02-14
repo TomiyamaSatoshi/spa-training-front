@@ -19,6 +19,7 @@
                 <div class="card-footer-custom">
                     <div class="item">
                         <i class="fas fa-heart"></i> {{ article?.niceCount }}
+                        <i class="fas fa-comment"></i> {{ article?.replyList.length }}
                     </div>
                     <div class="item">
                         <img appThumbnail src="{{ article?.pictureUrl }}" class="rounded-circle"

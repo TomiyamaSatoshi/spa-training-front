@@ -1,0 +1,78 @@
+<div class="container">
+    <!-- 記事の詳細 -->
+    <div class="card">
+        <div class="card-header">{{article?.articleTitle}}</div>
+        <div class="card-body">
+            <p class="card-text">{{article?.articleContent}}</p>
+            <button
+                class="btn btn-outline-primary"
+                type="button"
+                ngbTooltip="いいね!"
+                tooltipClass="custom-tooltip"
+                palcement="top"
+                (click)="nice()">
+                <i class="far fa-heart"></i>
+                {{article?.niceCount}}
+            </button>
+        </div>
+        <div class="card-footer text-secondary text-right border-0">
+            <img
+                src="{{article?.pictureUrl}}"
+                class="rounded-circle"
+                appThumbnail
+                ngbTooltip="{{article?.createdBy}}"
+                placement="bottom"/>
+            {{article?.createdAt | date:'short'}}
+        </div>
+    </div>
+    <!-- コメント入力ボタン -->
+    <div *ngIf="!isReplying" class="card border border-0">
+        <button
+            class="btn btn-outline-primary comment-button"
+            type="button"
+            (click)="switchReplying()">
+            この記事にコメントする
+        </button>
+    </div>
+    <!-- コメント入力欄 -->
+    <div *ngIf="isReplying" class="card border border-0">
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <div class="form-group">
+                <label>コメント:</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="replyContent"
+                    ngModel
+                    #replyContent="ngModel"
+                    required>
+                <div *ngIf="replyContent.invalid && replyContent.touched" class="alert alert-danger">
+                    コメントは必須です
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-outline-primary mr-2" type="button" (click)="switchReplying()">キャンセル</button>
+                <button class="btn btn-outline-primary mr-2" type="submit" [disabled]="form.invalid">送信</button>
+            </div>
+        </form>
+    </div>
+    <!-- コメント一覧 -->
+    <div *ngIf="!article?.replyList.length" class="card border border-0">
+        コメントはまだありません
+    </div>
+    <div *ngFor="let reply of article?.replyList">
+        <div class="card border-0">
+            <div class="card-body">{{article?.replyContent}}</div>
+            <div class="card-footer bg-transparent text-secondary text-reight border-0">
+                <img
+                    src="{{reply?.pictureUrl}}"
+                    class="rounded-circle"
+                    appThumbnail
+                    ngbTooltip="{{reply?.createBy}}"
+                    placement="bottom"/>
+                {{reply?.createdAt | date:'short'}}
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>

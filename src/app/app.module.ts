@@ -11,12 +11,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeadlinePipe } from './pipes/headline.pipe';
 import { ThumbnailDirective } from './directives/thumbnail.directive';
-import { CommonInterceptor } from './interceptors/common-interceptor';
-import { MockBackendInterceptor } from './interceptors/mock-backend-interceptor';
 import { AppErrorHandler } from './common/app-error-handler';
 import { environment } from 'src/environments/environment';
 import { ArticleCreateTemplateComponent } from './components/article-create/article-create-template/article-create-template.component';
 import { ArticleCreateReactiveComponent } from './components/article-create/article-create-reactive/article-create-reactive.component';
+import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
 
 const httpInterceptorProviders = environment.httpInterceptorProviders;
 
@@ -31,6 +30,7 @@ const httpInterceptorProviders = environment.httpInterceptorProviders;
     ThumbnailDirective,
     ArticleCreateTemplateComponent,
     ArticleCreateReactiveComponent,
+    ArticleDetailComponent,
   ],
   imports: [
     BrowserModule,

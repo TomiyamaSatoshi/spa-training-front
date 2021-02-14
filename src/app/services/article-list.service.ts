@@ -22,7 +22,7 @@ export class ArticleListService extends BaseService{
     const params = new HttpParams()
       .set('offset', (page * pageSize).toString())
       .set('limit', pageSize.toString());
-
+      
     return this.httpClient.get<Article[]>(this.apiUrl + '/article/list', { params })
      .pipe( catchError(this.handleError) ); 
   }

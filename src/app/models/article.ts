@@ -1,3 +1,5 @@
+import { Reply } from "./reply";
+
 export class Article {
 
     articleId: number;
@@ -8,6 +10,7 @@ export class Article {
     createdBy: string;
     createdAt: Date;
     updatedAt: Date;
+    replyList: Reply[];
 
     constructor(article: any = {}) {
         this.articleId = article.articleId || 0;
@@ -18,5 +21,6 @@ export class Article {
         this.createdBy = article.createdBy || '';
         this.createdAt = article.createdAt || new Date(2000, 1, 1);
         this.updatedAt = article.updatedAt || new Date(2000, 1, 1);
+        this.replyList = article.replyList || [];
     }
 }
