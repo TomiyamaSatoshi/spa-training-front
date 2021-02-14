@@ -3,4 +3,36 @@
         <!-- <img src="/assets/images/morning.png" class="logo">掲示板 -->
         <i class="fas fa-bell">掲示板</i>
     </div>
+    <div class="navbar-expand justify-content-end">
+        <ul class="navbar-nav">
+            <div *ngIf="isLogin; then login else notLogin"></div>
+            <ng-template #login>
+                <!-- user thumnail -->
+                <li class="nav-item">
+                    <img
+                        src="{{pictureUrl}}"
+                        class="rounded-circle thumbnail-small"
+                        ngbTooltip="{{userName}}"
+                        placement="bottom">
+                </li>
+                <!-- logout button -->
+                <li class="nav-item active">
+                    <a class="nav-link" (click)="logout()" href="#">
+                        <i
+                            class="fa fa-sign-out-alt"
+                            ngbTooltip="ログアウト"
+                            placement="buttom">
+                            Signout
+                        </i>
+                    </a>
+                </li>
+            </ng-template>
+            <ng-template #notLogin>
+                <!-- google sign in button -->
+                <li class="nav-item">
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                </li>
+            </ng-template>
+        </ul>
+    </div>
 </nav>

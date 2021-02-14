@@ -1,8 +1,10 @@
 import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
 import { ArticleListComponent } from './components/article-list/article-list.component';
@@ -16,7 +18,6 @@ import { environment } from 'src/environments/environment';
 import { ArticleCreateTemplateComponent } from './components/article-create/article-create-template/article-create-template.component';
 import { ArticleCreateReactiveComponent } from './components/article-create/article-create-reactive/article-create-reactive.component';
 import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
-import { AppRoutingModule } from './app-routing.module';
 
 const httpInterceptorProviders = environment.httpInterceptorProviders;
 
@@ -40,6 +41,15 @@ const httpInterceptorProviders = environment.httpInterceptorProviders;
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('access_token');
+        },
+        allowedDomains: ['localhost:8080'],
+        disallowedRoutes: [],
+      }
+    })
   ],
   providers: [
     { provide: ErrorHandler, useClass: AppErrorHandler },
