@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { AppError } from 'src/app/common/app-error';
 import { BadRequestError } from 'src/app/common/bad-request-error';
 import { NotFoundError } from 'src/app/common/not-found-error';
@@ -19,6 +20,7 @@ export class ArticleDetailComponent implements OnInit {
 
   constructor(
     private articleDetailService: ArticleDetailService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -28,7 +30,7 @@ export class ArticleDetailComponent implements OnInit {
 
   // idに紐付いた記事の詳細情報
   getArticle() {
-    const id = 1;
+    const id = +this.route.snapshot.paramMap.get('id');
     this.articleDetailService.getArticle(id).subscribe(
       (article) => {
         console.log('SUCCESS: ' + JSON.stringify(article));

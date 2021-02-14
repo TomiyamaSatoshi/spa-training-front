@@ -4,7 +4,7 @@ export const ARTICLES: Article[] = [
 
     {
         articleId: 1,
-        articleTitle: '記事タイトル',
+        articleTitle: '記事タイトル1',
         articleContent: 'この文章はダミーです。文字の大きさ、量、行間等を確認するために入れています。' +
         'この文章はダミーです。文字の大きさ、量、行間等を確認するために入れています。' +
         'この文章はダミーです。文字の大きさ、量、行間等を確認するために入れています。' +
@@ -18,8 +18,8 @@ export const ARTICLES: Article[] = [
         replyList: []
     },
     {
-        articleId: 1,
-        articleTitle: '記事タイトル',
+        articleId: 2,
+        articleTitle: '記事タイトル2',
         articleContent: 'この文章はダミーです。文字の大きさ、量、行間等を確認するために入れています。' +
         'この文章はダミーです。文字の大きさ、量、行間等を確認するために入れています。' +
         'この文章はダミーです。文字の大きさ、量、行間等を確認するために入れています。' +

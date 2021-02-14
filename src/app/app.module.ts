@@ -16,6 +16,7 @@ import { environment } from 'src/environments/environment';
 import { ArticleCreateTemplateComponent } from './components/article-create/article-create-template/article-create-template.component';
 import { ArticleCreateReactiveComponent } from './components/article-create/article-create-reactive/article-create-reactive.component';
 import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
+import { AppRoutingModule } from './app-routing.module';
 
 const httpInterceptorProviders = environment.httpInterceptorProviders;
 
@@ -38,6 +39,7 @@ const httpInterceptorProviders = environment.httpInterceptorProviders;
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    AppRoutingModule,
   ],
   providers: [
     { provide: ErrorHandler, useClass: AppErrorHandler },
