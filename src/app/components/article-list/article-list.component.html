@@ -16,7 +16,13 @@
     <button class="btn btn-outline-primary" type="button" routerLink="/article/create">
         <i class="fas fa-pen"></i> <span>　記事を投稿する</span>
     </button>
-</div>
+</div><br>
+
+<!-- Pagenation -->
+<app-pagenation
+    [currentPage]="currentPage"
+    [maxPage]="maxPage">
+</app-pagenation>
 
 <!--  Article Card List -->
 <div *ngIf="articleList?.length; else noArticles">
@@ -43,3 +49,9 @@
 <ng-template #noArticles>
     記事はありません。
 </ng-template>
+
+<!-- Pagenation -->
+<app-pagenation
+    [currentPage]="currentPage"
+    [maxPage]="maxPage">
+</app-pagenation>

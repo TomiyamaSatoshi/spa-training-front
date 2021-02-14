@@ -19,6 +19,7 @@ import { ArticleCreateTemplateComponent } from './components/article-create/arti
 import { ArticleCreateReactiveComponent } from './components/article-create/article-create-reactive/article-create-reactive.component';
 import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
 import { LoginComponent } from './components/login/login.component';
+import { PagenationComponent } from './components/pagenation/pagenation.component';
 
 const httpInterceptorProviders = environment.httpInterceptorProviders;
 
@@ -35,6 +36,7 @@ const httpInterceptorProviders = environment.httpInterceptorProviders;
     ArticleCreateReactiveComponent,
     ArticleDetailComponent,
     LoginComponent,
+    PagenationComponent,
   ],
   imports: [
     BrowserModule,

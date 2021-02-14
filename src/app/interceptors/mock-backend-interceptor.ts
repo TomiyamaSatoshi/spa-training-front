@@ -19,6 +19,9 @@ export class MockBackendInterceptor implements HttpInterceptor {
                         console.log('mock /article/list');
                         return of(new HttpResponse({ status: 200, body: ARTICLES.slice(begin, end) }));
                     }
+                    else if (req.url.endsWith('/article/count')) {
+                        return of(new HttpResponse({ status: 200, body: { count: ARTICLES.length }}));
+                    }
                     // idに紐付いた記事の詳細情報取得
                     else if (req.url.includes('/article')){
                         const id = parseInt(req.url.split('/')[4], 10);

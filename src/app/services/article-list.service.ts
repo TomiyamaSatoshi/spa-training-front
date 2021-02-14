@@ -19,13 +19,21 @@ export class ArticleListService extends BaseService{
 
   getArticles(page: number, pageSize: number): Observable<any> {
 
+    console.log('[getArticles] page = ' + page);
+    console.log('[getArticles] pageSize = ' + pageSize);
+
     const params = new HttpParams()
       .set('offset', (page * pageSize).toString())
       .set('limit', pageSize.toString());
-      
+
     return this.httpClient.get<Article[]>(this.apiUrl + '/article/list', { params })
      .pipe( catchError(this.handleError) ); 
   }
 
+  countArticles(): Observable<any> {
+    console.log('[countArticles]');
+    return this.httpClient.get<any>(this.apiUrl + '/article/count')
+      .pipe( catchError(this.handleError) );
+  }
 
 }
