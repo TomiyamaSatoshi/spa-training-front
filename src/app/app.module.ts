@@ -18,6 +18,7 @@ import { environment } from 'src/environments/environment';
 import { ArticleCreateTemplateComponent } from './components/article-create/article-create-template/article-create-template.component';
 import { ArticleCreateReactiveComponent } from './components/article-create/article-create-reactive/article-create-reactive.component';
 import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
+import { LoginComponent } from './components/login/login.component';
 
 const httpInterceptorProviders = environment.httpInterceptorProviders;
 
@@ -33,6 +34,7 @@ const httpInterceptorProviders = environment.httpInterceptorProviders;
     ArticleCreateTemplateComponent,
     ArticleCreateReactiveComponent,
     ArticleDetailComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
